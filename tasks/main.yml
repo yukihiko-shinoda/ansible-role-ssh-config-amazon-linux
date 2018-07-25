@@ -17,7 +17,7 @@
 
 - name: set aws cli path
   set_fact:
-    path_aws_cli: "{{ '' if ansible_distribution == 'Amazon' else '/usr/local/pyenv/shims/' }}"
+    path_aws_cli: "{{ '' if ansible_distribution == 'Amazon' else '/opt/pyenv/shims/' }}"
 
 - name: download deploy key
   command: "{{ path_aws_cli }}aws s3 cp s3://{{ ssh_config_git_deploy_key_s3_bucket_name }}/{{ item }} {{ result_command_pwd.stdout }}/.ssh/{{ item }}"
